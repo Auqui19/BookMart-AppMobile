@@ -16,9 +16,9 @@ import com.auqui.bookmart.databinding.ActivityCartBinding
 
 class CartActivity : BaseActivity() {
 
-    private  lateinit var  binding: ActivityCartBinding
-    private  lateinit var  managmentCart: ManagmentCart
-    private var tax:Double=0.0
+    private lateinit var binding: ActivityCartBinding
+    private lateinit var managmentCart: ManagmentCart
+    private var tax: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,28 +35,32 @@ class CartActivity : BaseActivity() {
         }
     }
 
-    private fun initCartList(){
-        binding.viewCart.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.viewCart.adapter = CartAdapter(managmentCart.getListCart(), this, object : ChangeNumberItemsListener{
-            override fun onChanged() {
-                calcularCart()
-            }
-        })
+    private fun initCartList() {
+        binding.viewCart.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        binding.viewCart.adapter =
+            CartAdapter(managmentCart.getListCart(), this, object : ChangeNumberItemsListener {
+                override fun onChanged() {
+                    calcularCart()
+                }
+            })
 
-        with(binding){
-            emptyTxt.visibility = if(managmentCart.getListCart().isEmpty()) View.VISIBLE else View.GONE
-            scrollView.visibility = if(managmentCart.getListCart().isEmpty()) View.GONE else View.VISIBLE
+        with(binding) {
+            emptyTxt.visibility =
+                if (managmentCart.getListCart().isEmpty()) View.VISIBLE else View.GONE
+            scrollView.visibility =
+                if (managmentCart.getListCart().isEmpty()) View.GONE else View.VISIBLE
         }
     }
 
-    private fun calcularCart(){
+    private fun calcularCart() {
         val envio = 10.0
         val descuento = 0.1
-        tax = Math.round((managmentCart.getTotalFee() * descuento)*100)/100.0
-        val total = Math.round((managmentCart.getTotalFee() - tax + envio)*100)/100
-        val itemTotal = Math.round(managmentCart.getTotalFee()*100)/100
+        tax = Math.round((managmentCart.getTotalFee() * descuento) * 100) / 100.0
+        val total = Math.round((managmentCart.getTotalFee() - tax + envio) * 100) / 100
+        val itemTotal = Math.round(managmentCart.getTotalFee() * 100) / 100
 
-        with(binding){
+        with(binding) {
             totalBookTxt.text = "S/ $itemTotal"
             envioTxt.text = "S/ $envio"
             descuentoTxt.text = "S/ $tax"
@@ -64,7 +68,7 @@ class CartActivity : BaseActivity() {
         }
     }
 
-    private fun setVariable(){
+    private fun setVariable() {
         binding.backBtn.setOnClickListener {
             finish()
         }

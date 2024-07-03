@@ -39,7 +39,11 @@ class LoginActivity : AppCompatActivity() {
             val email = binding.email.text.toString()
             val password = binding.password.text.toString()
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this@LoginActivity, "Debe ingresar un email y una contraseña", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@LoginActivity,
+                    "Debe ingresar un email y una contraseña",
+                    Toast.LENGTH_SHORT
+                ).show()
                 binding.progressBar.visibility = View.GONE
                 return@setOnClickListener
             }
@@ -48,12 +52,17 @@ class LoginActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     binding.progressBar.visibility = View.GONE
                     if (task.isSuccessful) {
-                        Toast.makeText(baseContext, "Sesión iniciada correctamente", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            baseContext,
+                            "Sesión iniciada correctamente",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {
-                        Toast.makeText(baseContext, "Error al iniciar sesión", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, "Error al iniciar sesión", Toast.LENGTH_SHORT)
+                            .show()
                     }
                 }
         }

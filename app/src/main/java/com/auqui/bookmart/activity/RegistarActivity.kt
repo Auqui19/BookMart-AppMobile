@@ -33,7 +33,11 @@ class RegistarActivity : AppCompatActivity() {
             val email = binding.email.text.toString()
             val password = binding.password.text.toString()
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this@RegistarActivity, "Debes ingresar un email y una contraseña", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@RegistarActivity,
+                    "Debes ingresar un email y una contraseña",
+                    Toast.LENGTH_SHORT
+                ).show()
                 binding.progressBar.visibility = View.GONE
                 return@setOnClickListener
             }
@@ -42,13 +46,21 @@ class RegistarActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     binding.progressBar.visibility = View.GONE
                     if (task.isSuccessful) {
-                        Toast.makeText(baseContext, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            baseContext,
+                            "Usuario registrado correctamente",
+                            Toast.LENGTH_SHORT
+                        ).show()
 
                         val intent = Intent(this@RegistarActivity, LoginActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {
-                        Toast.makeText(baseContext, "Error al registrar usuario", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            baseContext,
+                            "Error al registrar usuario",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
         }
