@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BookMart</string>
+    <string name="intro_title">Descubre tu \nPróxima Lectura</string>
+    <string name="intro_text">Explora nuestra colección y encuentra tu próximo libro favorito. ¡Empieza a leer hoy!</string>
+    <string name="empezemos">Iniciar sesión</string>
+    <string name="registrar">Registrar</string>
+    <string name="welcome">Bienvenido, gracias por usar nuestra aplicación. 👋</string>
+    <string name="registrate">No tienes cuenta? <font color="#fff">Regístrate aquí</font></string>
+
+    <string name="welcomeregister">Llena tus datos o continúa con las redes sociales. 😉</string>
+</resources>
